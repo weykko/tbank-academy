@@ -1,0 +1,218 @@
+[
+    {
+        "category": "Animal",
+        "difficulty": "easy",
+        "word": "Кот",
+        "hint": "Домашнее животное, мурлыкает"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "easy",
+        "word": "Собака",
+        "hint": "Лучший друг человека"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "easy",
+        "word": "Попугай",
+        "hint": "Цветная птица, умеет говорить"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "medium",
+        "word": "Слон",
+        "hint": "Большое животное с хоботом"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "medium",
+        "word": "Жираф",
+        "hint": "Самое высокое животное с длинной шеей"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "medium",
+        "word": "Бегемот",
+        "hint": "Крупное животное, живет в воде и на суше"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "hard",
+        "word": "Утконос",
+        "hint": "Яйцекладущее млекопитающее с утиным клювом"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "hard",
+        "word": "Броненосец",
+        "hint": "Животное, покрытое панцирем"
+    },
+    {
+        "category": "Animal",
+        "difficulty": "hard",
+        "word": "Колибри",
+        "hint": "Самая маленькая птица в мире"
+    },
+    {
+        "category": "Food",
+        "difficulty": "easy",
+        "word": "Суп",
+        "hint": "Жидкое блюдо, едят ложкой"
+    },
+    {
+        "category": "Food",
+        "difficulty": "easy",
+        "word": "Хлеб",
+        "hint": "Выпечка из муки, основа многих бутербродов"
+    },
+    {
+        "category": "Food",
+        "difficulty": "easy",
+        "word": "Сок",
+        "hint": "Напиток из фруктов или овощей"
+    },
+    {
+        "category": "Food",
+        "difficulty": "medium",
+        "word": "Пицца",
+        "hint": "Итальянское блюдо с тестом и начинкой сверху"
+    },
+    {
+        "category": "Food",
+        "difficulty": "medium",
+        "word": "Шашлык",
+        "hint": "Мясо, жаренное на углях"
+    },
+    {
+        "category": "Food",
+        "difficulty": "medium",
+        "word": "Рагу",
+        "hint": "Тушеное блюдо из мяса и овощей"
+    },
+    {
+        "category": "Food",
+        "difficulty": "hard",
+        "word": "Биф Веллингтон",
+        "hint": "Говяжья вырезка в тесте"
+    },
+    {
+        "category": "Food",
+        "difficulty": "hard",
+        "word": "Тирамису",
+        "hint": "Итальянский десерт с кофе и маскарпоне"
+    },
+    {
+        "category": "Food",
+        "difficulty": "hard",
+        "word": "Фуа-гра",
+        "hint": "Паштет из гусиной печени"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "easy",
+        "word": "Шляпа",
+        "hint": "Головной убор с полями"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "easy",
+        "word": "Платье",
+        "hint": "Женская одежда, обычно односоставная"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "easy",
+        "word": "Футболка",
+        "hint": "Хлопчатая одежда с короткими рукавами"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "medium",
+        "word": "Куртка",
+        "hint": "Верхняя одежда для прохладной погоды"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "medium",
+        "word": "Пиджак",
+        "hint": "Элемент классического костюма"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "medium",
+        "word": "Комбинезон",
+        "hint": "Одежда, объединяющая верх и низ"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "hard",
+        "word": "Жилет",
+        "hint": "Одежда без рукавов, надевается поверх рубашки"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "hard",
+        "word": "Кимоно",
+        "hint": "Традиционная японская одежда"
+    },
+    {
+        "category": "Clothes",
+        "difficulty": "hard",
+        "word": "Смокинг",
+        "hint": "Вечерний мужской костюм"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "easy",
+        "word": "Мышь",
+        "hint": "Устройство ввода для компьютера"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "easy",
+        "word": "Монитор",
+        "hint": "Экран для отображения информации"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "easy",
+        "word": "Колонки",
+        "hint": "Устройство для воспроизведения звука"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "medium",
+        "word": "Клавиатура",
+        "hint": "Устройство для ввода текста"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "medium",
+        "word": "Процессор",
+        "hint": "Мозг компьютера"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "medium",
+        "word": "Сканер",
+        "hint": "Устройство для оцифровки изображений"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "hard",
+        "word": "Материнская плата",
+        "hint": "Основная плата компьютера"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "hard",
+        "word": "Видеокарта",
+        "hint": "Устройство для обработки графики"
+    },
+    {
+        "category": "Technologies",
+        "difficulty": "hard",
+        "word": "Твердотельный накопитель",
+        "hint": "Быстрая память без движущихся частей"
+    }
+]
