@@ -61,8 +61,8 @@ class AstarSolverTest {
         Point end = new Point(1, 1);
 
         assertThatThrownBy(() -> solver.solve(maze, start, end))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Start point");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Start point");
     }
 
     @Test
@@ -78,8 +78,8 @@ class AstarSolverTest {
         Point end = new Point(0, 0); // Стена
 
         assertThatThrownBy(() -> solver.solve(maze, start, end))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("End point");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("End point");
     }
 
     @Test
@@ -99,4 +99,3 @@ class AstarSolverTest {
         assertThat(path.points()).isNotEmpty();
     }
 }
-

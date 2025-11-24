@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Генератор лабиринта алгоритмом Прима.
- * Создает более сбалансированную структуру с большим количеством тупиков и ответвлений.
+ * Генератор лабиринта алгоритмом Прима. Создает более сбалансированную структуру с большим количеством тупиков и
+ * ответвлений.
  */
 public class PrimGenerator extends AbstractMazeGenerator {
 
@@ -34,8 +34,8 @@ public class PrimGenerator extends AbstractMazeGenerator {
 
                 cells[frontier.y()][frontier.x()] = CellType.PATH;
 
-                int wallX = (frontier.x() + neighbor.x()) / 2;
-                int wallY = (frontier.y() + neighbor.y()) / 2;
+                int wallX = frontier.x() + (neighbor.x() - frontier.x()) / 2;
+                int wallY = frontier.y() + (neighbor.y() - frontier.y()) / 2;
                 cells[wallY][wallX] = CellType.PATH;
 
                 addFrontiers(cells, frontier, frontiers);
@@ -46,8 +46,8 @@ public class PrimGenerator extends AbstractMazeGenerator {
     /**
      * Добавляет соседние клетки на расстоянии 2 от текущей в список frontiers.
      *
-     * @param cells     сетка лабиринта
-     * @param cell      текущая ячейка
+     * @param cells сетка лабиринта
+     * @param cell текущая ячейка
      * @param frontiers список frontier клеток
      */
     private void addFrontiers(CellType[][] cells, Point cell, List<Point> frontiers) {
@@ -55,8 +55,8 @@ public class PrimGenerator extends AbstractMazeGenerator {
             Point neighbor = new Point(cell.x() + dir[0], cell.y() + dir[1]);
 
             if (isValidInnerCell(cells, neighbor)
-                && cells[neighbor.y()][neighbor.x()] == CellType.WALL
-                && !frontiers.contains(neighbor)) {
+                    && cells[neighbor.y()][neighbor.x()] == CellType.WALL
+                    && !frontiers.contains(neighbor)) {
                 frontiers.add(neighbor);
             }
         }
@@ -66,7 +66,7 @@ public class PrimGenerator extends AbstractMazeGenerator {
      * Находит соседние клетки типа PATH на расстоянии 2 от указанной клетки.
      *
      * @param cells сетка лабиринта
-     * @param cell  текущая ячейка
+     * @param cell текущая ячейка
      * @return список соседних PATH клеток
      */
     private List<Point> getPathNeighbors(CellType[][] cells, Point cell) {
@@ -76,8 +76,7 @@ public class PrimGenerator extends AbstractMazeGenerator {
             int nx = cell.x() + dir[0];
             int ny = cell.y() + dir[1];
 
-            if (isValidInnerCell(cells, new Point(nx, ny))
-                && cells[ny][nx] == CellType.PATH) {
+            if (isValidInnerCell(cells, new Point(nx, ny)) && cells[ny][nx] == CellType.PATH) {
                 neighbors.add(new Point(nx, ny));
             }
         }
@@ -85,4 +84,3 @@ public class PrimGenerator extends AbstractMazeGenerator {
         return neighbors;
     }
 }
-

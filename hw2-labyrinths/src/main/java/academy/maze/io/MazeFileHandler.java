@@ -10,10 +10,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Обработчик файлов лабиринтов.
- * Отвечает за чтение и запись лабиринтов в текстовом формате.
- */
+/** Обработчик файлов лабиринтов. Отвечает за чтение и запись лабиринтов в текстовом формате. */
 public class MazeFileHandler {
     private static final char WALL_CHAR = '#';
     private static final String UNICODE_WALL_CHARS = "═║╔╗╚╝╦╩╠╣╬";
@@ -106,8 +103,9 @@ public class MazeFileHandler {
      * @throws IOException если произошла ошибка записи
      */
     public void write(Path filePath, String content) throws IOException {
-        if (filePath.getParent() != null) {
-            Files.createDirectories(filePath.getParent());
+        Path parent = filePath.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
         }
 
         try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
@@ -124,4 +122,3 @@ public class MazeFileHandler {
         this.enableSurfaces = enable;
     }
 }
-

@@ -57,8 +57,7 @@ class RendererFactoryTest {
         RendererFactory factory = new RendererFactory();
 
         assertThatThrownBy(() -> factory.createRenderer("html"))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Unknown");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Unknown");
     }
 }
-

@@ -3,10 +3,7 @@ package academy.maze.generator;
 import academy.maze.generator.impl.DfsGenerator;
 import academy.maze.generator.impl.PrimGenerator;
 
-/**
- * Фабрика генераторов лабиринтов.
- * Позволяет создавать генераторы по их типу.
- */
+/** Фабрика генераторов лабиринтов. Позволяет создавать генераторы по их типу. */
 public class GeneratorFactory {
 
     /**
@@ -36,18 +33,13 @@ public class GeneratorFactory {
             return createGenerator(type);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(
-                "Unknown generator algorithm: " + algorithmName +
-                ". Supported algorithms: dfs, prim"
-            );
+                    "Unknown generator algorithm: " + algorithmName + ". Supported algorithms: dfs, prim");
         }
     }
 
-    /**
-     * Типы алгоритмов генерации лабиринтов.
-     */
+    /** Типы алгоритмов генерации лабиринтов. */
     public enum GeneratorType {
         DFS,
         PRIM
     }
 }
-

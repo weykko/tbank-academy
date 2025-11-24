@@ -72,4 +72,3 @@ class SurfaceDecoratorTest {
         assertThat(originalMaze.cells()[0][1]).isEqualTo(CellType.PATH);
     }
 }
-

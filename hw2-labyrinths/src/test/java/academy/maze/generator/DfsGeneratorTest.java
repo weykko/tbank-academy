@@ -63,12 +63,12 @@ class DfsGeneratorTest {
         Generator generator = new DfsGenerator();
 
         assertThatThrownBy(() -> generator.generate(0, 5))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("positive");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("positive");
 
         assertThatThrownBy(() -> generator.generate(5, -1))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("positive");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("positive");
     }
 
     @Test
@@ -81,4 +81,3 @@ class DfsGeneratorTest {
         assertThat(maze.cells()[0].length).isEqualTo(3);
     }
 }
-

@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Генератор лабиринта методом поиска в глубину (DFS, Recursive Backtracking).
- * Использует рекурсивный обход для создания извилистых коридоров с минимальным количеством тупиков.
+ * Генератор лабиринта методом поиска в глубину (DFS, Recursive Backtracking). Использует рекурсивный обход для создания
+ * извилистых коридоров с минимальным количеством тупиков.
  */
 public class DfsGenerator extends AbstractMazeGenerator {
 
@@ -25,7 +25,7 @@ public class DfsGenerator extends AbstractMazeGenerator {
     /**
      * Рекурсивно вырезает проходы в лабиринте, начиная с текущей точки.
      *
-     * @param cells   сетка лабиринта
+     * @param cells сетка лабиринта
      * @param visited матрица посещенных ячеек
      * @param current текущая точка
      */
@@ -36,16 +36,10 @@ public class DfsGenerator extends AbstractMazeGenerator {
         List<int[]> shuffledDirections = getShuffledDirections();
 
         for (int[] direction : shuffledDirections) {
-            Point neighbor = new Point(
-                current.x() + direction[0],
-                current.y() + direction[1]
-            );
+            Point neighbor = new Point(current.x() + direction[0], current.y() + direction[1]);
 
             if (isValidInnerCell(cells, neighbor) && !visited[neighbor.y()][neighbor.x()]) {
-                Point wall = new Point(
-                    current.x() + direction[0] / 2,
-                    current.y() + direction[1] / 2
-                );
+                Point wall = new Point(current.x() + direction[0] / 2, current.y() + direction[1] / 2);
                 cells[wall.y()][wall.x()] = CellType.PATH;
 
                 carvePassagesFrom(cells, visited, neighbor);
@@ -64,4 +58,3 @@ public class DfsGenerator extends AbstractMazeGenerator {
         return directions;
     }
 }
-

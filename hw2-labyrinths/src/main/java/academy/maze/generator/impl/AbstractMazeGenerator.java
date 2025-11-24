@@ -1,21 +1,20 @@
 package academy.maze.generator.impl;
 
-import academy.maze.generator.Generator;
 import academy.maze.dto.CellType;
 import academy.maze.dto.Maze;
 import academy.maze.dto.Point;
+import academy.maze.generator.Generator;
 import java.util.Random;
 
 /**
- * Абстрактный базовый класс для генераторов лабиринтов.
- * Реализует Template Method Pattern
- * Содержит общую логику инициализации и валидации.
+ * Абстрактный базовый класс для генераторов лабиринтов. Реализует Template Method Pattern Содержит общую логику
+ * инициализации и валидации.
  */
 public abstract class AbstractMazeGenerator implements Generator {
 
     protected final Random random;
 
-    protected static final int[][] DIRECTIONS = {
+    static final int[][] DIRECTIONS = {
         {0, -2},
         {0, 2},
         {-2, 0},
@@ -38,10 +37,9 @@ public abstract class AbstractMazeGenerator implements Generator {
     }
 
     /**
-     * Инициализирует сетку лабиринта заданного размера.
-     * Создает сетку (width + 2) x (height + 2), заполненную стенами.
+     * Инициализирует сетку лабиринта заданного размера. Создает сетку (width + 2) x (height + 2), заполненную стенами.
      *
-     * @param width  внутренняя ширина лабиринта
+     * @param width внутренняя ширина лабиринта
      * @param height внутренняя высота лабиринта
      * @return инициализированная сетка, заполненная стенами
      */
@@ -60,11 +58,10 @@ public abstract class AbstractMazeGenerator implements Generator {
     }
 
     /**
-     * Генерирует структуру лабиринта.
-     * Должен быть реализован в подклассах в соответствии с конкретным алгоритмом.
+     * Генерирует структуру лабиринта. Должен быть реализован в подклассах в соответствии с конкретным алгоритмом.
      *
-     * @param cells  сетка ячеек лабиринта
-     * @param width  внутренняя ширина лабиринта
+     * @param cells сетка ячеек лабиринта
+     * @param width внутренняя ширина лабиринта
      * @param height внутренняя высота лабиринта
      */
     protected abstract void generateMazeStructure(CellType[][] cells, int width, int height);
@@ -72,15 +69,13 @@ public abstract class AbstractMazeGenerator implements Generator {
     /**
      * Проверяет корректность размеров лабиринта.
      *
-     * @param width  ширина лабиринта
+     * @param width ширина лабиринта
      * @param height высота лабиринта
      * @throws IllegalArgumentException если размеры некорректны
      */
     protected void validateDimensions(int width, int height) {
         if (width <= 0 || height <= 0) {
-            throw new IllegalArgumentException(
-                "Dimensions must be positive: width=" + width + ", height=" + height
-            );
+            throw new IllegalArgumentException("Dimensions must be positive: width=" + width + ", height=" + height);
         }
     }
 
@@ -92,7 +87,6 @@ public abstract class AbstractMazeGenerator implements Generator {
      * @return true, если ячейка внутри границ, иначе false
      */
     protected boolean isValidInnerCell(CellType[][] cells, Point point) {
-        return point.y() > 0 && point.y() < cells.length - 1
-            && point.x() > 0 && point.x() < cells[0].length - 1;
+        return point.y() > 0 && point.y() < cells.length - 1 && point.x() > 0 && point.x() < cells[0].length - 1;
     }
 }

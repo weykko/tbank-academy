@@ -3,10 +3,7 @@ package academy.maze.solver;
 import academy.maze.solver.impl.AstarSolver;
 import academy.maze.solver.impl.DijkstraSolver;
 
-/**
- * Фабрика решателей лабиринтов.
- * Позволяет создавать решатели по их типу.
- */
+/** Фабрика решателей лабиринтов. Позволяет создавать решатели по их типу. */
 public class SolverFactory {
 
     /**
@@ -36,18 +33,13 @@ public class SolverFactory {
             return createSolver(type);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(
-                "Unknown solver algorithm: " + algorithmName +
-                ". Supported algorithms: astar, dijkstra"
-            );
+                    "Unknown solver algorithm: " + algorithmName + ". Supported algorithms: astar, dijkstra");
         }
     }
 
-    /**
-     * Типы поддерживаемых алгоритмов решения лабиринтов.
-     */
+    /** Типы поддерживаемых алгоритмов решения лабиринтов. */
     public enum SolverType {
         ASTAR,
         DIJKSTRA
     }
 }
-

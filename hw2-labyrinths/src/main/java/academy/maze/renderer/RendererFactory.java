@@ -4,8 +4,8 @@ import academy.maze.renderer.impl.AsciiRenderer;
 import academy.maze.renderer.impl.UnicodeRenderer;
 
 /**
- * Фабрика для создания рендереров лабиринта.
- * Поддерживает создание различных типов рендереров на основе строкового идентификатора.
+ * Фабрика для создания рендереров лабиринта. Поддерживает создание различных типов рендереров на основе строкового
+ * идентификатора.
  */
 public class RendererFactory {
 
@@ -24,10 +24,9 @@ public class RendererFactory {
         return switch (type.toLowerCase()) {
             case "ascii" -> new AsciiRenderer();
             case "unicode" -> new UnicodeRenderer();
-            default -> throw new IllegalArgumentException(
-                "Unknown renderer type: " + type + ". Supported types: ascii, unicode"
-            );
+            default ->
+                throw new IllegalArgumentException(
+                        "Unknown renderer type: " + type + ". Supported types: ascii, unicode");
         };
     }
 }
-

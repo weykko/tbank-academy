@@ -4,9 +4,7 @@ import academy.maze.dto.Maze;
 import academy.maze.dto.Path;
 import academy.maze.dto.Point;
 
-/**
- * Рендерер лабиринта - интерфейс для различных способов отображения.
- */
+/** Рендерер лабиринта - интерфейс для различных способов отображения. */
 public interface MazeRenderer {
     /**
      * Отрисовывает лабиринт без пути.
@@ -27,4 +25,3 @@ public interface MazeRenderer {
      */
     String render(Maze maze, Path path, Point start, Point end);
 }
-

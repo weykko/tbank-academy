@@ -5,15 +5,12 @@ import academy.maze.command.SolveMazeCommand;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/**
- * Точка входа в приложение для работы с лабиринтами.
- */
+/** Точка входа в приложение для работы с лабиринтами. */
 @Command(
-    name = "maze-app",
-    description = "Maze generator and solver CLI application.",
-    mixinStandardHelpOptions = true,
-    subcommands = {GenerateMazeCommand.class, SolveMazeCommand.class}
-)
+        name = "maze-app",
+        description = "Maze generator and solver CLI application.",
+        mixinStandardHelpOptions = true,
+        subcommands = {GenerateMazeCommand.class, SolveMazeCommand.class})
 public class Application implements Runnable {
 
     /** Главный метод приложения. */

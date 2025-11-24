@@ -47,8 +47,7 @@ class GeneratorFactoryTest {
         GeneratorFactory factory = new GeneratorFactory();
 
         assertThatThrownBy(() -> factory.createGenerator("unknown"))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Unknown");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Unknown");
     }
 }
-

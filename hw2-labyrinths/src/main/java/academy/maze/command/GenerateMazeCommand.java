@@ -1,61 +1,56 @@
 package academy.maze.command;
 
-import academy.maze.generator.Generator;
 import academy.maze.dto.Maze;
+import academy.maze.generator.Generator;
 import academy.maze.generator.GeneratorFactory;
 import academy.maze.generator.SurfaceDecorator;
 import academy.maze.io.MazeFileHandler;
 import academy.maze.renderer.MazeRenderer;
 import academy.maze.renderer.RendererFactory;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-/**
- * Команда для генерации лабиринта.
- */
-@Command(
-    name = "generate",
-    description = "Generate a maze with specified algorithm and dimensions."
-)
+/** Команда для генерации лабиринта. */
+@Command(name = "generate", description = "Generate a maze with specified algorithm and dimensions.")
 public class GenerateMazeCommand implements Runnable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GenerateMazeCommand.class);
 
     @Option(
-        names = {"-a", "--algorithm"},
-        description = "Generation algorithm: dfs, prim",
-        required = true)
+            names = {"-a", "--algorithm"},
+            description = "Generation algorithm: dfs, prim",
+            required = true)
     private String algorithm;
 
     @Option(
-        names = {"-w", "--width"},
-        description = "Maze width",
-        required = true)
+            names = {"-w", "--width"},
+            description = "Maze width",
+            required = true)
     private int width;
 
     @Option(
-        names = {"-h", "--height"},
-        description = "Maze height",
-        required = true)
+            names = {"-h", "--height"},
+            description = "Maze height",
+            required = true)
     private int height;
 
     @Option(
-        names = {"-o", "--output"},
-        description = "Output file path")
+            names = {"-o", "--output"},
+            description = "Output file path")
     private String outputPath;
 
     @Option(
-        names = {"-r", "--renderer"},
-        description = "Renderer type: ascii, unicode",
-        defaultValue = "ascii")
+            names = {"-r", "--renderer"},
+            description = "Renderer type: ascii, unicode",
+            defaultValue = "ascii")
     private String rendererType;
 
     @Option(
-        names = {"-s", "--surfaces"},
-        description = "Enable special surfaces (swamp, sand, coin) in generated maze")
+            names = {"-s", "--surfaces"},
+            description = "Enable special surfaces (swamp, sand, coin) in generated maze")
     private boolean enableSurfaces;
 
     @Override
@@ -78,15 +73,15 @@ public class GenerateMazeCommand implements Runnable {
 
             if (outputPath != null) {
                 MazeFileHandler fileHandler = new MazeFileHandler();
-                fileHandler.write(Paths.get(outputPath), mazeString);
-                System.out.printf("Maze saved to: %s", outputPath);
+                fileHandler.write(Path.of(outputPath), mazeString);
+                LOGGER.info("Maze saved to: {}", outputPath);
             } else {
                 System.out.print(mazeString);
             }
 
         } catch (Exception e) {
             LOGGER.error("Error generating maze", e);
-            System.err.println("Error: " + e.getMessage());
+            System.err.println(e.getMessage());
             System.exit(1);
         }
     }

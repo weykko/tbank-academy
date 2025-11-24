@@ -1,10 +1,11 @@
 package academy.maze.solver.impl;
 
-import academy.maze.solver.Solver;
 import academy.maze.dto.CellType;
 import academy.maze.dto.Maze;
 import academy.maze.dto.Path;
 import academy.maze.dto.Point;
+import academy.maze.solver.Solver;
+import academy.maze.solver.SolverUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,16 +14,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-/**
- * Решатель лабиринта алгоритмом Дейкстры.
- * Алгоритм находит кратчайший путь от начальной до конечной точки,
- * используя только реальную стоимость пути без эвристики.
- */
+/** Решатель лабиринта алгоритмом Дейкстры. */
 public class DijkstraSolver implements Solver {
 
     @Override
     public Path solve(Maze maze, Point start, Point end) {
-        validatePoints(maze, start, end);
+        SolverUtils.validatePoints(maze, start, end);
 
         CellType[][] cells = maze.cells();
 
@@ -33,9 +30,7 @@ public class DijkstraSolver implements Solver {
 
         Map<Point, Boolean> visited = new HashMap<>();
 
-        PriorityQueue<Node> queue = new PriorityQueue<>(
-            Comparator.comparingDouble(n -> n.distance)
-        );
+        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingDouble(n -> n.distance));
 
         queue.add(new Node(start, 0.0));
 
@@ -52,8 +47,7 @@ public class DijkstraSolver implements Solver {
                 return reconstructPath(predecessors, start, end);
             }
 
-
-            for (Point neighbor : getNeighbors(cells, current.point)) {
+            for (Point neighbor : SolverUtils.getNeighbors(cells, current.point)) {
                 if (visited.getOrDefault(neighbor, false)) {
                     continue;
                 }
@@ -75,68 +69,11 @@ public class DijkstraSolver implements Solver {
     }
 
     /**
-     * Проверяет корректность начальной и конечной точек.
-     *
-     * @param maze  лабиринт.
-     * @param start начальная точка.
-     * @param end   конечная точка.
-     */
-    private void validatePoints(Maze maze, Point start, Point end) {
-        CellType[][] cells = maze.cells();
-
-        if (!isValidPoint(cells, start)) {
-            throw new IllegalArgumentException(
-                "Start point is out of bounds or is a wall: " + start
-            );
-        }
-
-        if (!isValidPoint(cells, end)) {
-            throw new IllegalArgumentException(
-                "End point is out of bounds or is a wall: " + end
-            );
-        }
-    }
-
-    /**
-     * Проверяет, что точка находится внутри границ лабиринта и является проходимой.
-     *
-     * @param cells сетка ячеек лабиринта
-     * @param point проверяемая точка
-     * @return true, если точка внутри границ и является проходимой, иначе false
-     */
-    private boolean isValidPoint(CellType[][] cells, Point point) {
-        return point.y() >= 0 && point.y() < cells.length
-            && point.x() >= 0 && point.x() < cells[0].length
-            && cells[point.y()][point.x()].isPassable();
-    }
-
-    /**
-     * Получает соседние точки, которые являются путями.
-     *
-     * @param cells сетка ячеек лабиринта
-     * @param point текущая точка
-     * @return список соседних точек
-     */
-    private List<Point> getNeighbors(CellType[][] cells, Point point) {
-        List<Point> neighbors = new ArrayList<>();
-        int[][] directions = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
-
-        for (int[] dir : directions) {
-            Point neighbor = new Point(point.x() + dir[0], point.y() + dir[1]);
-            if (isValidPoint(cells, neighbor)) {
-                neighbors.add(neighbor);
-            }
-        }
-
-        return neighbors;
-    }
-
-    /**
      * Восстанавливает путь от начальной до конечной точки.
      *
      * @param predecessors карта предшественников для каждой точки
-     * @param start        начальная точка
-     * @param end          конечная точка
+     * @param start начальная точка
+     * @param end конечная точка
      * @return восстановленный путь
      */
     private Path reconstructPath(Map<Point, Point> predecessors, Point start, Point end) {
@@ -155,17 +92,6 @@ public class DijkstraSolver implements Solver {
         return new Path(pathList.toArray(new Point[0]));
     }
 
-    /**
-     * Вспомогательный класс для представления узла в приоритетной очереди.
-     */
-    private static class Node {
-        final Point point;
-        final double distance;
-
-        Node(Point point, double distance) {
-            this.point = point;
-            this.distance = distance;
-        }
-    }
+    /** Вспомогательный класс для представления узла в приоритетной очереди. */
+    private record Node(Point point, double distance) {}
 }
-

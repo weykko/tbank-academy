@@ -47,8 +47,7 @@ class SolverFactoryTest {
         SolverFactory factory = new SolverFactory();
 
         assertThatThrownBy(() -> factory.createSolver("bfs"))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Unknown");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Unknown");
     }
 }
-

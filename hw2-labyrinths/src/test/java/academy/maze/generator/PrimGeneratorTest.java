@@ -62,11 +62,9 @@ class PrimGeneratorTest {
     void generate_shouldThrowExceptionForInvalidDimensions() {
         Generator generator = new PrimGenerator();
 
-        assertThatThrownBy(() -> generator.generate(-5, 5))
-            .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> generator.generate(-5, 5)).isInstanceOf(IllegalArgumentException.class);
 
-        assertThatThrownBy(() -> generator.generate(5, 0))
-            .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> generator.generate(5, 0)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -79,4 +77,3 @@ class PrimGeneratorTest {
         assertThat(maze.cells()[0].length).isEqualTo(3);
     }
 }
-
